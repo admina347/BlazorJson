@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/obj/Debug/net8.0/scopedcss/projectbundle/BlazorGetJson.bundle.scp.css",
+      "PackagePath": "staticwebassets/BlazorGetJson.bundle.scp.css"
+    },
+    {
+      "Id": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/wwwroot/total_chats.json",
+      "PackagePath": "staticwebassets/total_chats.json"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BlazorGetJson.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.BlazorGetJson.props",
+      "PackagePath": "build\\BlazorGetJson.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.BlazorGetJson.props",
+      "PackagePath": "buildMultiTargeting\\BlazorGetJson.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.BlazorGetJson.props",
+      "PackagePath": "buildTransitive\\BlazorGetJson.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

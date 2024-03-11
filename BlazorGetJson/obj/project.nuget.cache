@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "EQg8P3O2Ja3FHe2ivtFhnO3fZVxMbNyZexsc6r3IYC+UVpolzCCf9L+3a//rv2WMJ5YmSnOrkx1h2nHViPM7rw==",
+  "success": true,
+  "projectFilePath": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/BlazorGetJson.csproj",
+  "expectedPackageFiles": [
+    "/home/admina/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
