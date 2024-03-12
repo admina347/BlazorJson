@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-public partial class TagsModel
+public class TagsModel
 {
     [JsonProperty("name")]
     public string Name { get; set; }

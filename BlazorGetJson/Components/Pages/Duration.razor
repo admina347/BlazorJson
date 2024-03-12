@@ -12,6 +12,8 @@
 }
 else
 {
+    <p>Report name: @report.Name</p>
+    <p>Report distribution: @report.Request.Distribution</p>
     <p>Total: @report.Total</p>
     <p>From: @report.Request.Filters.From</p>
     <p>To: @report.Request.Filters.To</p>
@@ -41,12 +43,10 @@ else
 }
 
 @code {
-    //private TotalChatsModel totalChats;
     private ReportsModel report;
 
     protected override void OnInitialized()
     {
-        //report = JsonFileService.ReadJsonFile("./Data/duration.json");
         report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/duration.json");
     }
 }

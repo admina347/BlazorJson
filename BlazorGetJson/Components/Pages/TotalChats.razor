@@ -6,16 +6,18 @@
 
 <h1>Total Chats Report</h1>
 
-@if (totalChats == null)
+@if (report == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    <p>Total: @totalChats.Total</p>
-    <p>From: @totalChats.Request.Filters.From</p>
-    <p>To: @totalChats.Request.Filters.To</p>
-    <p>Groups: @string.Join(", ", totalChats.Request.Filters.Groups.Values)</p>
+    <p>Report name: @report.Name</p>
+    <p>Report distribution: @report.Request.Distribution</p>
+    <p>Total: @report.Total</p>
+    <p>From: @report.Request.Filters.From</p>
+    <p>To: @report.Request.Filters.To</p>
+    <p>Groups: @string.Join(", ", report.Request.Filters.Groups.Values)</p>
 
     <table class="table">
         <thead>
@@ -25,7 +27,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var record in totalChats.Records)
+            @foreach (var record in report.Records)
             {
                 <tr>
                     <td>@record.Key</td>
@@ -37,11 +39,10 @@ else
 }
 
 @code {
-    //private TotalChatsModel totalChats;
-    private ReportsModel totalChats;
+    private ReportsModel report;
 
     protected override void OnInitialized()
     {
-        totalChats = JsonFileService.ReadJsonFile<ReportsModel>("./Data/total_chats.json");
+        report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/total_chats.json");
     }
 }
