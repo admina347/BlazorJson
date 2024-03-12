@@ -22,10 +22,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/Components/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db3VudGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/Components/Pages/Duration.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9EdXJhdGlvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,12 +38,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9SYXRpbmdzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/Components/Pages/TotalChats.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ub3RhbENoYXRzLnJhem9y
+[/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/Components/Pages/ResponseTime.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9SZXNwb25zZVRpbWUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9XZWF0aGVyLnJhem9y
+[/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/Components/Pages/Tags.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9UYWdzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/Components/Pages/TotalChats.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ub3RhbENoYXRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/Components/Routes.razor]

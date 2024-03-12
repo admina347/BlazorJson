@@ -1,0 +1,60 @@
+@page "/tags"
+
+@inject JsonFileService JsonFileService
+
+<PageTitle>Tags Report</PageTitle>
+
+<h1>Tags Report</h1>
+
+@if (report == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>Report name: @report.Name</p>
+    <p>Report distribution: @report.Request.Distribution</p>
+    <p>Total: @report.Total</p>
+    <p>From: @report.Request.Filters.From</p>
+    <p>To: @report.Request.Filters.To</p>
+    <p>Groups: @string.Join(", ", report.Request.Filters.Groups.Values)</p>
+
+    <div class="table-responsive">
+        <table class="table table-success table-striped">
+            <thead>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Count</th>
+            </thead>
+            <tbody class="table-group-divider">
+                @foreach (var dateRecord in report.Records)
+                {
+                    <tr>
+                        <td>@dateRecord.Key</td>
+                        <td colspan="2" class="border-bottom-0 p-0">
+                            <table class="table table-success table-striped m-0">
+                                @foreach (var tagRecord in dateRecord.Value)
+                                {
+                                    <tr>
+                                        <td class="text-start w-25">@tagRecord.Key</td>
+                                        <td class="text-start w-25">@tagRecord.Value</td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    //private TotalChatsModel totalChats;
+    private TagsModel report;
+
+    protected override void OnInitialized()
+    {
+        report = JsonFileService.ReadJsonFile<TagsModel>("./Data/tags.json");
+    }
+}

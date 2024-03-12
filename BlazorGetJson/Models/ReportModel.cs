@@ -17,6 +17,8 @@ public partial class ReportsModel
 
     [JsonProperty("records")]
     public Dictionary<string, Record> Records { get; set; }
+    //public Dictionary<string, Dictionary<string, Record>> Records { get; set; }
+    //public Dictionary<string, Dictionary<string, int>> Records { get; set; }
 }
 
 public partial class Record
@@ -44,7 +46,10 @@ public partial class Record
 
     [JsonProperty("response_time", NullValueHandling = NullValueHandling.Ignore)]
     public double? ResponseTime { get; set; }
+
+    public Dictionary<string, int>? Tag { get; set; }
 }
+
 
 public partial class Request
 {

@@ -1,13 +1,14 @@
-using BlazorGetJson.Models;
+using System.IO;
 using Newtonsoft.Json;
 
-namespace BlazorGetJson.Components;
-
-public class JsonFileService
+namespace BlazorGetJson.Components
 {
-    public ReportsModel ReadJsonFile(string filePath)
+    public class JsonFileService
     {
-        var json = File.ReadAllText(filePath);
-        return JsonConvert.DeserializeObject<ReportsModel>(json);
+        public T ReadJsonFile<T>(string filePath)
+        {
+            var json = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
     }
 }

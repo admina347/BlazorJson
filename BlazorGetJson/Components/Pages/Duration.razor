@@ -46,6 +46,7 @@ else
 
     protected override void OnInitialized()
     {
-        report = JsonFileService.ReadJsonFile("./Data/duration.json");
+        //report = JsonFileService.ReadJsonFile("./Data/duration.json");
+        report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/duration.json");
     }
 }

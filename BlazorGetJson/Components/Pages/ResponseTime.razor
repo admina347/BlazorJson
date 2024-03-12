@@ -1,10 +1,10 @@
-@page "/ratings"
+@page "/response-time"
 
 @inject JsonFileService JsonFileService
 
-<PageTitle>Ratings Report</PageTitle>
+<PageTitle>Response time Report</PageTitle>
 
-<h1>Ratings Report</h1>
+<h1>Response time Report</h1>
 
 @if (report == null)
 {
@@ -23,9 +23,8 @@ else
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Bad</th>
-                <th>Chats</th>
-                <th>Good</th>
+                <th>Count</th>
+                <th>Response time</th>
             </tr>
         </thead>
         <tbody>
@@ -33,9 +32,8 @@ else
             {
                 <tr>
                     <td>@record.Key</td>
-                    <td>@record.Value.Bad</td>
-                    <td>@record.Value.Chats</td>
-                    <td>@record.Value.Good</td>
+                    <td>@record.Value.Count</td>
+                    <td>@record.Value.ResponseTime</td>
                 </tr>
             }
         </tbody>
@@ -43,11 +41,10 @@ else
 }
 
 @code {
-    //private TotalChatsModel totalChats;
     private ReportsModel report;
 
     protected override void OnInitialized()
     {
-        report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/ratings.json");
+        report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/response_time.json");
     }
 }

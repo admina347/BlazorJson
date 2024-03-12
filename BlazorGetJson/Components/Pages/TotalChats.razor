@@ -42,6 +42,6 @@ else
 
     protected override void OnInitialized()
     {
-        totalChats = JsonFileService.ReadJsonFile("./Data/total_chats.json");
+        totalChats = JsonFileService.ReadJsonFile<ReportsModel>("./Data/total_chats.json");
     }
 }
