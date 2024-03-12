@@ -1,0 +1,51 @@
+@page "/duration"
+
+@inject JsonFileService JsonFileService
+
+<PageTitle>Duration Report</PageTitle>
+
+<h1>Duration Report</h1>
+
+@if (report == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>Total: @report.Total</p>
+    <p>From: @report.Request.Filters.From</p>
+    <p>To: @report.Request.Filters.To</p>
+    <p>Groups: @string.Join(", ", report.Request.Filters.Groups.Values)</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Agents Chatting Duration</th>
+                <th>Count</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in report.Records)
+            {
+                <tr>
+                    <td>@record.Key</td>
+                    <td>@record.Value.AgentsChattingDuration</td>
+                    <td>@record.Value.Count</td>
+                    <td>@record.Value.Duration</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    //private TotalChatsModel totalChats;
+    private ReportsModel report;
+
+    protected override void OnInitialized()
+    {
+        report = JsonFileService.ReadJsonFile("./Data/duration.json");
+    }
+}

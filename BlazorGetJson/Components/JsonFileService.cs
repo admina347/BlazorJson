@@ -5,9 +5,9 @@ namespace BlazorGetJson.Components;
 
 public class JsonFileService
 {
-    public TotalChatsModel ReadJsonFile(string filePath)
+    public ReportsModel ReadJsonFile(string filePath)
     {
         var json = File.ReadAllText(filePath);
-        return JsonConvert.DeserializeObject<TotalChatsModel>(json);
+        return JsonConvert.DeserializeObject<ReportsModel>(json);
     }
 }
