@@ -1,7 +1,9 @@
 @page "/total-chats"
 @rendermode InteractiveServer
 
+@using BlazorGetJson.Services
 @inject JsonFileService JsonFileService
+@inject PaginationService PaginationService
 
 <PageTitle>Total Chats Report</PageTitle>
 
@@ -16,8 +18,8 @@ else
     <p>Report name: @report.Name</p>
     <p>Report distribution: @report.Request.Distribution</p>
     <p>Total: @report.Total</p>
-    <p>From: @currentWeekStart</p>
-    <p>To: @currentWeekEnd.AddDays(-1)</p>
+    <p>From: </p>
+    <p>To: </p>
     <p>Groups: @string.Join(", ", report.Request.Filters.Groups.Values)</p>
 
     <table class="table">
@@ -28,7 +30,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var record in GetRecordsForCurrentWeek())
+            @foreach (var record in PaginationService.GetCurrentPageRecords())
             {
                 <tr>
                     <td>@record.Key</td>
@@ -39,8 +41,8 @@ else
     </table>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item"><button class="page-link" @onclick="PreviousWeek">Previous Week</button></li>
-            <li class="page-item"><button class="page-link" @onclick="NextWeek">Next Week</button></li>
+            <li class="page-item"><button class="page-link" @onclick="PreviousPage">Previous Page</button></li>
+            <li class="page-item"><button class="page-link" @onclick="NextPage">Next Page</button></li>
         </ul>
     </nav>
 }
@@ -50,58 +52,25 @@ else
     private DateTime currentWeekStart;
     private DateTime currentWeekEnd;
 
-    private DateTime startDate;
-    private DateTime endDate;
-
-    private DateTime toDate;
-
     protected override void OnInitialized()
     {
         report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/total_chats.json");
-        SetCurrentWeek();
+        // Assuming you have methods to set currentWeekStart and currentWeekEnd
+
+        // Initialize the PaginationService with the report and current week dates
+        PaginationService.Initialize(report);
     }
 
-    private void SetCurrentWeek()
+    
+
+    private void NextPage()
     {
-        // Assuming the From and To filters are DateTimeOffset
-        DateTimeOffset fromDateOffset = report.Request.Filters.From;
-        DateTimeOffset toDateOffset = report.Request.Filters.To;
-
-        // Convert DateTimeOffset to DateTime
-        DateTime fromDate = fromDateOffset.DateTime;
-        toDate = toDateOffset.DateTime;
-
-        // Calculate the start and end of the current week
-        currentWeekStart = fromDate.Date;    //fromDate.AddDays((DateTime.Now - fromDate).Days % 7);
-        startDate = fromDate.Date;
-        endDate = toDate.Date;
-        
-        currentWeekEnd = currentWeekStart.AddDays(7);
+        PaginationService.NextPage();
+        StateHasChanged();
     }
 
-    private IEnumerable<KeyValuePair<string, Record>> GetRecordsForCurrentWeek()
+    private void PreviousPage()
     {
-        // Filter records based on the current week
-        return report.Records.Where(r => DateTime.Parse(r.Key) >= currentWeekStart && DateTime.Parse(r.Key) < currentWeekEnd);
-    }
-
-    private void PreviousWeek()
-    {
-        if (startDate < currentWeekStart)
-        {
-            currentWeekStart = currentWeekStart.AddDays(-7);
-            currentWeekEnd = currentWeekEnd.AddDays(-7);
-            StateHasChanged();
-        }
-    }
-
-    private void NextWeek()
-    {
-        if (currentWeekEnd < toDate)
-        {
-            currentWeekStart = currentWeekStart.AddDays(7);
-            currentWeekEnd = currentWeekEnd.AddDays(7);
-            StateHasChanged();
-        }     
+        PaginationService.PreviousPage();
     }
 }
