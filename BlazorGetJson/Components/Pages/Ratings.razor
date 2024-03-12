@@ -1,0 +1,53 @@
+@page "/ratings"
+
+@inject JsonFileService JsonFileService
+
+<PageTitle>Ratings Report</PageTitle>
+
+<h1>Ratings Report</h1>
+
+@if (report == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>Report name: @report.Name</p>
+    <p>Report distribution: @report.Request.Distribution</p>
+    <p>Total: @report.Total</p>
+    <p>From: @report.Request.Filters.From</p>
+    <p>To: @report.Request.Filters.To</p>
+    <p>Groups: @string.Join(", ", report.Request.Filters.Groups.Values)</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Bad</th>
+                <th>Chats</th>
+                <th>Good</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in report.Records)
+            {
+                <tr>
+                    <td>@record.Key</td>
+                    <td>@record.Value.Bad</td>
+                    <td>@record.Value.Chats</td>
+                    <td>@record.Value.Good</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    //private TotalChatsModel totalChats;
+    private ReportsModel report;
+
+    protected override void OnInitialized()
+    {
+        report = JsonFileService.ReadJsonFile("./Data/ratings.json");
+    }
+}
