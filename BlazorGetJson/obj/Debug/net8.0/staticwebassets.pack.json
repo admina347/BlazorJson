@@ -21,10 +21,6 @@
       "PackagePath": "staticwebassets/favicon.png"
     },
     {
-      "Id": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/wwwroot/total_chats.json",
-      "PackagePath": "staticwebassets/total_chats.json"
-    },
-    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BlazorGetJson.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

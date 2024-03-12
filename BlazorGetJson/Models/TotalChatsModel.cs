@@ -11,7 +11,7 @@ public partial class TotalChatsModel
     public Request Request { get; set; }
 
     [JsonProperty("total")]
-    public long Total { get; set; }
+    public int Total { get; set; }
 
     [JsonProperty("records")]
     public Dictionary<string, Record> Records { get; set; }
@@ -20,7 +20,7 @@ public partial class TotalChatsModel
 public partial class Record
 {
     [JsonProperty("total")]
-    public long Total { get; set; }
+    public int Total { get; set; }
 }
 
 public partial class Request
@@ -47,6 +47,6 @@ public partial class Filters
 public partial class Groups
 {
     [JsonProperty("values")]
-    public List<long> Values { get; set; }
+    public List<int> Values { get; set; }
 }
 

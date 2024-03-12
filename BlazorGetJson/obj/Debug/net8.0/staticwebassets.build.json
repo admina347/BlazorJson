@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YiwG+vV4oConUmUfiayFAZYiuF2PF0ZaJq3lBqJKAO8=",
+  "Hash": "d1vUbHkaFtJz5yOORe1diSA2IwyTzYgLbrrWsfLgYyo=",
   "Source": "BlazorGetJson",
   "BasePath": "_content/BlazorGetJson",
   "Mode": "Default",
@@ -129,25 +129,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.png"
-    },
-    {
-      "Identity": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/wwwroot/total_chats.json",
-      "SourceId": "BlazorGetJson",
-      "SourceType": "Discovered",
-      "ContentRoot": "/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/wwwroot/",
-      "BasePath": "_content/BlazorGetJson",
-      "RelativePath": "total_chats.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/total_chats.json"
     }
   ]
 }

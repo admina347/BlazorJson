@@ -1,0 +1,46 @@
+@page "/total-chats"
+
+@inject JsonFileService JsonFileService
+
+<PageTitle>Total Chats Report</PageTitle>
+
+<h1>Total Chats Report</h1>
+
+@if (totalChats == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>Total: @totalChats.Total</p>
+    <p>From: @totalChats.Request.Filters.From</p>
+    <p>To: @totalChats.Request.Filters.To</p>
+    <p>Groups: @string.Join(", ", totalChats.Request.Filters.Groups.Values)</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in totalChats.Records)
+            {
+                <tr>
+                    <td>@record.Key</td>
+                    <td>@record.Value.Total</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private TotalChatsModel totalChats;
+
+    protected override void OnInitialized()
+    {
+        totalChats = JsonFileService.ReadJsonFile("./Data/total_chats.json");
+    }
+}

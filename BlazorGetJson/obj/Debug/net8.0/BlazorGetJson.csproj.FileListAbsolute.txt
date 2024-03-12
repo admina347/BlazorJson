@@ -35,3 +35,4 @@
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/obj/Debug/net8.0/BlazorGetJson.csproj.AssemblyReference.cache
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/Newtonsoft.Json.dll
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/obj/Debug/net8.0/BlazorGe.E056445A.Up2Date
+/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/obj/Debug/net8.0/BlazorGetJson.sourcelink.json
