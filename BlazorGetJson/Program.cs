@@ -1,4 +1,5 @@
 using BlazorGetJson.Components;
+using BlazorGetJson.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,12 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<HttpClient>();
 // Register the JsonFileService
 builder.Services.AddScoped<JsonFileService>();
+
+//Pagination service for simple reports
+builder.Services.AddScoped<PaginationService>();
+
+//Pagination service for tags report
+builder.Services.AddScoped<PaginationTagService>();
         
 
 var app = builder.Build();

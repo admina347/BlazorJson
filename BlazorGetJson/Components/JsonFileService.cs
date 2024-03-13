@@ -1,13 +1,13 @@
-using BlazorGetJson.Models;
 using Newtonsoft.Json;
 
-namespace BlazorGetJson.Components;
-
-public class JsonFileService
+namespace BlazorGetJson.Components
 {
-    public TotalChatsModel ReadJsonFile(string filePath)
+    public class JsonFileService
     {
-        var json = File.ReadAllText(filePath);
-        return JsonConvert.DeserializeObject<TotalChatsModel>(json);
+        public T ReadJsonFile<T>(string filePath)
+        {
+            var json = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
     }
 }

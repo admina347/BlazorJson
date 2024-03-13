@@ -6,7 +6,6 @@
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/appsettings.Development.json
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/appsettings.json
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/Data/duration.json
-/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/Data/rating.json
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/Data/response_time.json
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/Data/tags.json
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/Data/total_chats.json
@@ -36,3 +35,4 @@
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/Newtonsoft.Json.dll
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/obj/Debug/net8.0/BlazorGe.E056445A.Up2Date
 /home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/obj/Debug/net8.0/BlazorGetJson.sourcelink.json
+/home/admina/Документы/Поиск работы/Задание 1/BlazorJson/BlazorGetJson/bin/Debug/net8.0/Data/ratings.json

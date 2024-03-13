@@ -1,3 +1,4 @@
 /BlazorGetJson/bin/
 /BlazorGetJson/obj/
-.vscode/
+/.vscode/
+*.dll

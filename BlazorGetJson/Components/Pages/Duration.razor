@@ -1,12 +1,12 @@
-@page "/total-chats"
+@page "/duration"
 @rendermode InteractiveServer
 
 @inject JsonFileService JsonFileService
 @inject PaginationService PaginationService
 
-<PageTitle>Total Chats Report</PageTitle>
+<PageTitle>Duration Report</PageTitle>
 
-<h1>Total Chats Report</h1>
+<h1>Duration Report</h1>
 
 @if (report == null)
 {
@@ -25,7 +25,9 @@ else
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Total</th>
+                <th>Agents Chatting Duration</th>
+                <th>Count</th>
+                <th>Duration</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +35,9 @@ else
             {
                 <tr>
                     <td>@record.Key</td>
-                    <td>@record.Value.Total</td>
+                    <td>@record.Value.AgentsChattingDuration</td>
+                    <td>@record.Value.Count</td>
+                    <td>@record.Value.Duration</td>
                 </tr>
             }
         </tbody>
@@ -51,7 +55,7 @@ else
 
     protected override void OnInitialized()
     {
-        report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/total_chats.json");
+        report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/duration.json");
 
         // Initialize the PaginationService with the report and current week dates
         PaginationService.Initialize(report);
