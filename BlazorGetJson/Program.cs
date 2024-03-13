@@ -11,8 +11,11 @@ builder.Services.AddSingleton<HttpClient>();
 // Register the JsonFileService
 builder.Services.AddScoped<JsonFileService>();
 
-// Inside the Program.cs file, add the following line in the Main method or ConfigureServices method
+//Pagination service for simple reports
 builder.Services.AddScoped<PaginationService>();
+
+//Pagination service for tags report
+builder.Services.AddScoped<PaginationTagService>();
         
 
 var app = builder.Build();

@@ -1,6 +1,8 @@
 @page "/tags"
+@rendermode InteractiveServer
 
 @inject JsonFileService JsonFileService
+@inject PaginationTagService PaginationTagService
 
 <PageTitle>Tags Report</PageTitle>
 
@@ -15,37 +17,45 @@ else
     <p>Report name: @report.Name</p>
     <p>Report distribution: @report.Request.Distribution</p>
     <p>Total: @report.Total</p>
-    <p>From: @report.Request.Filters.From</p>
-    <p>To: @report.Request.Filters.To</p>
+    <p>From: @PaginationTagService.From</p>
+    <p>To: @PaginationTagService.To</p>
     <p>Groups: @string.Join(", ", report.Request.Filters.Groups.Values)</p>
 
     <div class="table-responsive">
-        <table class="table table-success table-striped">
+        <table class="table table-primary table-striped">
             <thead>
                 <th>Date</th>
                 <th>Name</th>
                 <th>Count</th>
             </thead>
             <tbody class="table-group-divider">
-                @foreach (var dateRecord in report.Records)
+                @foreach (var dateRecord in PaginationTagService.GetCurrentPageRecords())
                 {
                     <tr>
                         <td>@dateRecord.Key</td>
                         <td colspan="2" class="border-bottom-0 p-0">
-                            <table class="table table-success table-striped m-0">
-                                @foreach (var tagRecord in dateRecord.Value)
-                                {
-                                    <tr>
-                                        <td class="text-start w-25">@tagRecord.Key</td>
-                                        <td class="text-start w-25">@tagRecord.Value</td>
-                                    </tr>
-                                }
+                            <table class="table table-secondary table-striped m-0">
+                                <tbody>
+                                    @foreach (var tagRecord in dateRecord.Value)
+                                    {
+                                        <tr>
+                                            <td class="text-start w-25">@tagRecord.Key</td>
+                                            <td class="text-start w-25">@tagRecord.Value</td>
+                                        </tr>
+                                    }
+                                </tbody>
                             </table>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item"><button class="page-link" @onclick="PreviousPage">Previous Page</button></li>
+                <li class="page-item"><button class="page-link" @onclick="NextPage">Next Page</button></li>
+            </ul>
+        </nav>
     </div>
 }
 
@@ -55,5 +65,18 @@ else
     protected override void OnInitialized()
     {
         report = JsonFileService.ReadJsonFile<TagsModel>("./Data/tags.json");
+        
+        // Initialize the PaginationService with the report and current week dates
+        PaginationTagService.Initialize(report);
+    }
+
+    private void NextPage()
+    {
+        PaginationTagService.NextPage();
+    }
+
+    private void PreviousPage()
+    {
+        PaginationTagService.PreviousPage();
     }
 }

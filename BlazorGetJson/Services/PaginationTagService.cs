@@ -2,9 +2,9 @@ using BlazorGetJson.Models;
 
 namespace BlazorGetJson.Services;
 
-public class PaginationService
+public class PaginationTagService
 {
-    private ReportsModel _report;
+    private TagsModel _report;
     private DateTime _currentWeekStart;
     private DateTime _currentWeekEnd;
     
@@ -16,7 +16,7 @@ public class PaginationService
 
     private DateTime _toDate;
 
-    public void Initialize(ReportsModel report)
+    public void Initialize(TagsModel report)
     {
         _report = report;
 
@@ -45,7 +45,7 @@ public class PaginationService
         To = DateOnly.FromDateTime(_currentWeekEnd.AddDays(-1));
     }
 
-    public IEnumerable<KeyValuePair<string, Record>> GetCurrentPageRecords()
+    public IEnumerable<KeyValuePair<string, Dictionary<string, int>>> GetCurrentPageRecords()
     {
         return _report.Records.Where(r => DateTime.Parse(r.Key) >= _currentWeekStart && DateTime.Parse(r.Key) < _currentWeekEnd);
     }
