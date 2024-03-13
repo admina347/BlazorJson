@@ -1,6 +1,8 @@
 @page "/duration"
+@rendermode InteractiveServer
 
 @inject JsonFileService JsonFileService
+@inject PaginationService PaginationService
 
 <PageTitle>Duration Report</PageTitle>
 
@@ -15,8 +17,8 @@ else
     <p>Report name: @report.Name</p>
     <p>Report distribution: @report.Request.Distribution</p>
     <p>Total: @report.Total</p>
-    <p>From: @report.Request.Filters.From</p>
-    <p>To: @report.Request.Filters.To</p>
+    <p>From: @PaginationService.From</p>
+    <p>To: @PaginationService.To</p>
     <p>Groups: @string.Join(", ", report.Request.Filters.Groups.Values)</p>
 
     <table class="table">
@@ -29,7 +31,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var record in report.Records)
+            @foreach (var record in PaginationService.GetCurrentPageRecords())
             {
                 <tr>
                     <td>@record.Key</td>
@@ -40,6 +42,12 @@ else
             }
         </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><button class="page-link" @onclick="PreviousPage">Previous Page</button></li>
+            <li class="page-item"><button class="page-link" @onclick="NextPage">Next Page</button></li>
+        </ul>
+    </nav>
 }
 
 @code {
@@ -48,5 +56,19 @@ else
     protected override void OnInitialized()
     {
         report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/duration.json");
+
+        // Initialize the PaginationService with the report and current week dates
+        PaginationService.Initialize(report);
+    }
+
+    private void NextPage()
+    {
+        PaginationService.NextPage();
+        StateHasChanged();
+    }
+
+    private void PreviousPage()
+    {
+        PaginationService.PreviousPage();
     }
 }

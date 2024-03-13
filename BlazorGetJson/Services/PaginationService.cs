@@ -10,6 +10,9 @@ namespace BlazorGetJson.Services
         private ReportsModel _report;
         private DateTime _currentWeekStart;
         private DateTime _currentWeekEnd;
+        
+        public DateOnly From { get; set; }
+        public DateOnly To { get; set; }
 
         private DateTime _startDate;
         private DateTime _endDate;
@@ -40,8 +43,11 @@ namespace BlazorGetJson.Services
             _currentWeekStart = fromDate.Date;    //fromDate.AddDays((DateTime.Now - fromDate).Days % 7);
             _startDate = fromDate.Date;
             _endDate = _toDate.Date;
-            
+
             _currentWeekEnd = _currentWeekStart.AddDays(7);
+
+            From = DateOnly.FromDateTime(_currentWeekStart);
+            To = DateOnly.FromDateTime(_currentWeekEnd.AddDays(-1));
         }
 
         public IEnumerable<KeyValuePair<string, Record>> GetCurrentPageRecords()
@@ -60,7 +66,8 @@ namespace BlazorGetJson.Services
             {
                 _currentWeekStart = _currentWeekStart.AddDays(7);
                 _currentWeekEnd = _currentWeekEnd.AddDays(7);
-
+                From = DateOnly.FromDateTime(_currentWeekStart);
+                To = DateOnly.FromDateTime(_currentWeekEnd.AddDays(-1));
             }  
         }
 
@@ -70,6 +77,8 @@ namespace BlazorGetJson.Services
             {
                 _currentWeekStart = _currentWeekStart.AddDays(-7);
                 _currentWeekEnd = _currentWeekEnd.AddDays(-7);
+                From = DateOnly.FromDateTime(_currentWeekStart);
+                To = DateOnly.FromDateTime(_currentWeekEnd.AddDays(-1));
             }
 
             // if (_currentPage > 1)

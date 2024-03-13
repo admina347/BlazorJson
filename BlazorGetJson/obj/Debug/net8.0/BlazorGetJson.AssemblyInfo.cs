@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlazorGetJson")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06a15ceee139eedd7a3686dcfd5b35e5bf3b6b18")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d11c829206027139d3ef6b65758353c036c813a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlazorGetJson")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlazorGetJson")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

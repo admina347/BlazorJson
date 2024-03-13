@@ -1,7 +1,6 @@
 @page "/total-chats"
 @rendermode InteractiveServer
 
-@using BlazorGetJson.Services
 @inject JsonFileService JsonFileService
 @inject PaginationService PaginationService
 
@@ -18,8 +17,8 @@ else
     <p>Report name: @report.Name</p>
     <p>Report distribution: @report.Request.Distribution</p>
     <p>Total: @report.Total</p>
-    <p>From: </p>
-    <p>To: </p>
+    <p>From: @PaginationService.From</p>
+    <p>To: @PaginationService.To</p>
     <p>Groups: @string.Join(", ", report.Request.Filters.Groups.Values)</p>
 
     <table class="table">
@@ -49,19 +48,14 @@ else
 
 @code {
     private ReportsModel report;
-    private DateTime currentWeekStart;
-    private DateTime currentWeekEnd;
 
     protected override void OnInitialized()
     {
         report = JsonFileService.ReadJsonFile<ReportsModel>("./Data/total_chats.json");
-        // Assuming you have methods to set currentWeekStart and currentWeekEnd
 
         // Initialize the PaginationService with the report and current week dates
         PaginationService.Initialize(report);
     }
-
-    
 
     private void NextPage()
     {
